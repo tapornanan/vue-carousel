@@ -1,15 +1,14 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Home from "./views/Home.vue";
 
+import Carousel from "./components/Carousel.vue";
 Vue.use(Router);
 
 export default new Router({
   routes: [
     {
       path: "/",
-      name: "home",
-      component: Home
+      redirect: '/carousel'
     },
     {
       path: "/about",
@@ -19,6 +18,11 @@ export default new Router({
       // which is lazy-loaded when the route is visited.
       component: () =>
         import(/* webpackChunkName: "about" */ "./views/About.vue")
+    },
+    {
+      path: "/carousel",
+      name: "carousel",
+      component: Carousel
     }
   ]
 });
